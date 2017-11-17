@@ -15,6 +15,29 @@ bundle install
 
 To initalize the mysql database on localhost edit the config/database.yml to include the following (replacing username and password with the correct credentials):
 
+```yaml
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: root
+  password:
+  socket: /tmp/mysql.sock
+
+development:
+  <<: *default
+  database: contacts_api_development
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  <<: *default
+  database: contacts_api_test
+```
+
+Then create the database:
+
 ```shell
 rake db:create
 ```
