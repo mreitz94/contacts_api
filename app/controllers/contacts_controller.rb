@@ -4,19 +4,21 @@ class ContactsController < ApplicationController
   # GET /contacts
   def index
     @contacts = Contact.all
-
-    render json: @contacts
+    render json: @contacts, status: :ok
   end
 
   # GET /contacts/1
   def show
-    render json: @contact
+    if !@contact
+      render json: not_found_error, status: :not_found
+    else
+      render json: @contact, status: :ok
+    end
   end
 
   # POST /contacts
   def create
     @contact = Contact.new(contact_params)
-
     if @contact.save
       render json: success_message('created'), status: :created, location: @contact
     else
@@ -26,8 +28,10 @@ class ContactsController < ApplicationController
 
   # PATCH/PUT /contacts/1
   def update
-    if @contact.update(contact_params)
-      render json: success_message('updated')
+    if !@contact
+      render json: not_found_error, status: :not_found
+    elsif @contact.update(contact_params)
+      render json: success_message('updated'), status: :ok
     else
       render json: error_message, status: :unprocessable_entity
     end
@@ -35,8 +39,10 @@ class ContactsController < ApplicationController
 
   # DELETE /contacts/1
   def destroy
-    if @contact.destroy
-      render json: { message: 'Contact deleted successfully' }
+    if !@contact
+      render json: not_found_error, status: :not_found
+    elsif @contact.destroy
+      render json: { message: 'Contact deleted successfully' }, status: :ok
     else
       render json: error_message, status: :unprocessable_entity
     end
@@ -45,15 +51,19 @@ class ContactsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_contact
-      @contact = Contact.find(params[:id])
+      @contact = Contact.find_by(id: params[:id])
     end
 
     def success_message(action)
-      { message: "Contact #{action} successfully", contact: @contact }
+      { status: 'success', message: "Contact #{action} successfully", contact: @contact }
     end
 
     def error_message
-      { message: 'Contact could not be created', errors: @contact.errors }
+      { status: 'error', message: 'Contact could not be created', errors: @contact.errors }
+    end
+
+    def not_found_error
+      { status: 'error', message: 'Contact not found', errors: ["id #{params[:id]} does not exist"] }
     end
 
     # Only allow a trusted parameter "white list" through.

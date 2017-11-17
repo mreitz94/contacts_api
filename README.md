@@ -198,21 +198,21 @@ This endpoint lists a single contact
 }
 ```
 
-## 4 Deleting a Contact
+## 5 Deleting a Contact
 
 This endpoint deletes a single contact
 
-### 4.1 HTTP Request
+### 5.1 HTTP Request
 
 ```GET http://localhost:3000/contacts/1```
 
-### 4.2 URL Parameters
+### 5.2 URL Parameters
 
 | Field         | Description |
 | ------------- |:-------------:|
 | id    | id of the contact |
 
-### 4.3 Sample Request and Response
+### 5.3 Sample Request and Response
 
 ```DELETE http://localhost:3000/contacts/4```
 
