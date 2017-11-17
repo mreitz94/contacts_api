@@ -72,3 +72,153 @@ This endpoint creates a new contact
     }
 }
 ```
+
+## 2 Updating New Contact
+
+This endpoint updates an existing contact
+
+### 2.1 HTTP Request
+
+```PATCH http://localhost:3000/contacts/:id```
+
+### 2.2 URL Parameters
+
+| Field         | Description |
+| ------------- |:-------------:|
+| id    | id of the contact |
+
+### 2.3 Query Parameters
+
+| Field         | Type          |
+| ------------- |:-------------:|
+| first_name    | string        |
+| last_name     | string        |
+| phone         | string        |
+| email         | string        |
+
+### 2.4 Sample Request and Response
+
+```PATCH http://localhost:3000/contacts/1?phone=8005557777```
+
+```json
+{
+    "message": "Contact updated successfully",
+    "contact": {
+        "id": 1,
+        "phone": "8005557777",
+        "first_name": "John",
+        "last_name": "Doe",
+        "email": "johndoe@email.com",
+        "created_at": "2017-11-17T17:44:34.000Z",
+        "updated_at": "2017-11-17T17:54:10.000Z"
+    }
+}
+```
+
+## 3 Listing Contacts
+
+This endpoint lists all of the contacts
+
+### 3.1 HTTP Request
+
+```GET http://localhost:3000/contacts```
+
+### 3.2 Sample Request and Response
+
+```GET http://localhost:3000```
+
+```json
+[
+    {
+        "id": 1,
+        "first_name": "John",
+        "last_name": "Doe",
+        "phone": "8005557777",
+        "email": "johndoe@email.com",
+        "created_at": "2017-11-17T17:44:34.000Z",
+        "updated_at": "2017-11-17T17:54:10.000Z"
+    },
+    {
+        "id": 2,
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "phone": "80055511111",
+        "email": "janedoe@email.com",
+        "created_at": "2017-11-17T15:54:01.000Z",
+        "updated_at": "2017-11-17T17:54:01.000Z"
+    },
+    {
+        "id": 3,
+        "first_name": "Tim",
+        "last_name": "Smith",
+        "phone": null,
+        "email": null,
+        "created_at": "2017-11-17T17:58:24.000Z",
+        "updated_at": "2017-11-17T17:58:24.000Z"
+    },
+    {
+        "id": 4,
+        "first_name": "Emily",
+        "last_name": "Jones",
+        "phone": null,
+        "email": null,
+        "created_at": "2017-11-17T17:58:36.000Z",
+        "updated_at": "2017-11-17T17:58:36.000Z"
+    }
+]
+```
+
+## 4 Listing a Single Contact
+
+This endpoint lists a single contact
+
+### 4.1 HTTP Request
+
+```GET http://localhost:3000/contacts/1```
+
+### 4.2 URL Parameters
+
+| Field         | Description |
+| ------------- |:-------------:|
+| id    | id of the contact |
+
+### 4.3 Sample Request and Response
+
+```GET http://localhost:3000/contacts/1```
+
+```json
+{
+    "id": 1,
+    "first_name": "John",
+    "last_name": "Doe",
+    "phone": "8005557777",
+    "email": "johndoe@email.com",
+    "created_at": "2017-11-17T17:44:34.000Z",
+    "updated_at": "2017-11-17T17:54:10.000Z"
+}
+```
+
+## 4 Deleting a Contact
+
+This endpoint deletes a single contact
+
+### 4.1 HTTP Request
+
+```GET http://localhost:3000/contacts/1```
+
+### 4.2 URL Parameters
+
+| Field         | Description |
+| ------------- |:-------------:|
+| id    | id of the contact |
+
+### 4.3 Sample Request and Response
+
+```DELETE http://localhost:3000/contacts/4```
+
+```json
+{
+    "message": "Contact deleted successfully"
+}
+```
+

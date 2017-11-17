@@ -35,7 +35,11 @@ class ContactsController < ApplicationController
 
   # DELETE /contacts/1
   def destroy
-    @contact.destroy
+    if @contact.destroy
+      render json: { message: 'Contact deleted successfully' }
+    else
+      render json: error_message, status: :unprocessable_entity
+    end
   end
 
   private
