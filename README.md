@@ -27,7 +27,7 @@ To add the contacts table (where the data is stored):
 rake db:migrate
 ```
 
-## 1 Usage
+## Usage
 
 To start the server:
 
@@ -35,17 +35,17 @@ To start the server:
 rails s
 ```
 
-## 2 Contacts
+# Contacts CRUD Operations
 
-### 2.1 Creating a New Contact
+## 1 Creating a New Contact
 
 This endpoint creates a new contact
 
-#### HTTP Request
+### 1.1 HTTP Request
 
-'POST http://localhost:3000/contacts'
+```POST http://localhost:3000/contacts```
 
-#### Query Parameters
+### 1.2 Query Parameters
 
 | Field         | Type          | Required |
 | ------------- |:-------------:| -----:|
@@ -54,9 +54,9 @@ This endpoint creates a new contact
 | phone         | string        | _optional_ |
 | email         | string        | _optional_ |
 
-#### Sample Request and Response
+### 1.3 Sample Request and Response
 
-'POST http://localhost:3000/contacts?first_name=John&last_name=Doe&phone=8005559000&email=johndoe@email.com'
+```POST http://localhost:3000/contacts?first_name=John&last_name=Doe&phone=8005559000&email=johndoe@email.com```
 
 ```json
 {
