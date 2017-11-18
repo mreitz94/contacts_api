@@ -96,7 +96,7 @@ This endpoint creates a new contact
 }
 ```
 
-## 2 Updating New Contact
+## 2 Updating Existing Contact
 
 This endpoint updates an existing contact
 
@@ -148,7 +148,7 @@ This endpoint lists all of the contacts
 
 ### 3.2 Sample Request and Response
 
-```GET http://localhost:3000```
+```GET http://localhost:3000/contacts```
 
 ```json
 [
@@ -227,7 +227,7 @@ This endpoint deletes a single contact
 
 ### 5.1 HTTP Request
 
-```GET http://localhost:3000/contacts/1```
+```DELETE http://localhost:3000/contacts/1```
 
 ### 5.2 URL Parameters
 
