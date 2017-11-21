@@ -12,17 +12,19 @@ The Ruby and RoR versions used for this project:
  * Ruby 2.3.1
  * Rails 5.1
 
+ * MySQL
+
 ## Installation
 
 Download the project to a local directory.
 
-To initalize the mysql database on localhost edit the config/database.yml to include the following (replacing username and password with the correct credentials):
+To initalize the MySQL database on localhost edit the config/database.yml to include the following (replacing username and password with the correct credentials):
 
 ```yaml
 default: &default
   adapter: mysql2
   encoding: utf8
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  pool: 5
   username: root
   password:
   socket: /tmp/mysql.sock
@@ -39,7 +41,7 @@ test:
   database: contacts_api_test
 ```
 
-There are two ways to install the project and build the database:
+There are two ways to install the project and build the MySQL database schema:
 
 1. To initialize the project run the startup script:
 
