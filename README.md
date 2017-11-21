@@ -84,11 +84,15 @@ This endpoint creates a new contact
 
 ### 1.3 Sample Request and Response
 
+#### Web Browser / Application
+
 ```POST http://localhost:3000/contacts?first_name=John&last_name=Doe&phone=8005559000&email=johndoe@email.com```
 
-or from the command line:
+#### Command Line
 
 ```curl --header "Content-Type: application/json" --request POST --data '{ "first_name":"John", "last_name":"doe", "phone":"8005559000", "email":"johndoe@email.com" }' http://localhost:3000/contacts ```
+
+#### Response
 
 ```json
 {
@@ -130,11 +134,15 @@ This endpoint updates an existing contact
 
 ### 2.4 Sample Request and Response
 
+#### Web Browser / Application
+
 ```PATCH http://localhost:3000/contacts/1?phone=8005557777```
 
-or from the command line:
+#### Command Line
 
 ``` curl --header "Content-Type: application/json" --request PATCH --data '{ "phone":"8005557777" }' http://localhost:3000/contacts/1 ```
+
+#### Response
 
 ```json
 {
@@ -161,11 +169,15 @@ This endpoint lists all of the contacts
 
 ### 3.2 Sample Request and Response
 
+#### Web Browser / Application
+
 ```GET http://localhost:3000/contacts```
 
-or from the command line:
+#### Command Line
 
 ``` curl --header "Content-Type: application/json" --request GET http://localhost:3000/contacts ```
+
+#### Response
 
 ```json
 [
@@ -224,11 +236,15 @@ This endpoint lists a single contact
 
 ### 4.3 Sample Request and Response
 
+#### Web Browser / Application
+
 ```GET http://localhost:3000/contacts/1```
 
-or from the command line:
+#### Command Line
 
 ``` curl --header "Content-Type: application/json" --request GET http://localhost:3000/contacts/1 ```
+
+#### Response
 
 ```json
 {
@@ -258,11 +274,15 @@ This endpoint deletes a single contact
 
 ### 5.3 Sample Request and Response
 
+#### Web Browser / Application
+
 ```DELETE http://localhost:3000/contacts/1```
 
-or from the command line:
+#### Command Line
 
 ``` curl --header "Content-Type: application/json" --request DELETE http://localhost:3000/contacts/1 ```
+
+#### Response
 
 ```json
 {
