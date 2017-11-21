@@ -5,13 +5,16 @@ REST API that allows you to manage contacts.
 A contact is a document that contains id, first_name, last_name, phone, and email.
 First and last name can never be blank, phone and email are optional fields and may be blank or not provided at all.
 
+## Requirements
+
+The Ruby and RoR versions used for this project:
+
+ * Ruby 2.3.1
+ * Rails 5.1
+
 ## Installation
 
-Download the project to a local directory and from the command line:
-
-```shell
-bundle install
-```
+Download the project to a local directory.
 
 To initalize the mysql database on localhost edit the config/database.yml to include the following (replacing username and password with the correct credentials):
 
@@ -36,17 +39,17 @@ test:
   database: contacts_api_test
 ```
 
-Then create the database:
+To initialize the project run the startup script:
 
 ```shell
-rake db:create
+sh start.sh
 ```
 
-This will create the schema for the project
-
-To add the contacts table (where the data is stored):
+The above script actually runs the following 3 commands, to bundle and install the project, create the mysql schema, and migrate the contacts table:
 
 ```shell
+bundle install
+rake db:create
 rake db:migrate
 ```
 
@@ -57,6 +60,8 @@ To start the server:
 ```shell
 rails s
 ```
+
+Now the API can be accessed from any of your browsers or 3rd party API applications such as Postman through the URL: `http://localhost:3000/contacts`
 
 # Contacts CRUD Operations
 
@@ -197,7 +202,7 @@ This endpoint lists a single contact
 
 ### 4.1 HTTP Request
 
-```GET http://localhost:3000/contacts/1```
+```GET http://localhost:3000/contacts/:id```
 
 ### 4.2 URL Parameters
 
@@ -227,7 +232,7 @@ This endpoint deletes a single contact
 
 ### 5.1 HTTP Request
 
-```DELETE http://localhost:3000/contacts/1```
+```DELETE http://localhost:3000/contacts/:id```
 
 ### 5.2 URL Parameters
 
