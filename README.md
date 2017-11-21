@@ -39,13 +39,15 @@ test:
   database: contacts_api_test
 ```
 
-To initialize the project run the startup script:
+There are two ways to install the project and build the database:
+
+1. To initialize the project run the startup script:
 
 ```shell
 sh start.sh
 ```
 
-The above script actually runs the following 3 commands, to bundle and install the project, create the mysql schema, and migrate the contacts table:
+2. The above script actually runs the following 3 commands, to bundle and install the project, create the mysql schema, and migrate the contacts table. You can simulate the start.sh script by running these three commands manually:
 
 ```shell
 bundle install
